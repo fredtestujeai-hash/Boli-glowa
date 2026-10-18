@@ -1,0 +1,10 @@
+{
+  "name": "boli-glowa",
+  "private": true,
+  "description": "Dziennik bólu głowy: kalendarz, czynniki i wnioski.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "python3 -m http.server 8080"
+  }
+}

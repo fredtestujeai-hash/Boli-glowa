@@ -1,0 +1,1 @@
+`supabase.js` to niezmieniony plik `dist/umd/supabase.js` z pakietu `@supabase/supabase-js@2.117.2` (licencja MIT, patrz `supabase-js.LICENSE`). Biblioteka leży w repozytorium, żeby aplikacja nie zależała od CDN.

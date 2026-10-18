@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Boli głowa · dziennik bólu głowy</title>
+  <meta name="description" content="Prosty dziennik bólu głowy w formie kalendarza: natężenie, leki, sen, kawa, czas przed ekranem i wnioski. Zgodny z zaleceniami NICE i ICHD-3.">
+  <meta name="theme-color" content="#F6F2EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#13111B" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Boli głowa">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Motyw ustawiony przed pierwszym malowaniem, żeby nie mrugało.
+    try {
+      var t = localStorage.getItem('boli-glowa:theme');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <script src="vendor/supabase.js" defer></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body data-view="loading">
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#kalendarz">
+      <img src="icons/icon.svg" alt="" width="34" height="34">
+      <span>Boli głowa</span>
+    </a>
+    <nav class="topnav" aria-label="Główna nawigacja">
+      <a href="#kalendarz" data-nav="calendar" data-icon="calendar">Kalendarz</a>
+      <a href="#wnioski" data-nav="insights" data-icon="bulb">Wnioski</a>
+      <a href="#raport" data-nav="report" data-icon="report">Raport</a>
+    </nav>
+    <button type="button" class="icon-btn acct-btn" data-act="account" data-icon="user" aria-label="Konto i ustawienia"></button>
+  </header>
+
+  <main id="view" class="view">
+    <div class="skeleton"><div class="sk sk-hero"></div><div class="sk sk-cal"></div></div>
+  </main>
+
+  <button type="button" class="fab" data-act="fab" data-icon="plus" aria-label="Zapisz dzisiejszy dzień"><span>Dziś</span></button>
+
+  <nav class="tabbar" aria-label="Główna nawigacja">
+    <a href="#kalendarz" data-nav="calendar" data-icon="calendar"><span>Kalendarz</span></a>
+    <a href="#wnioski" data-nav="insights" data-icon="bulb"><span>Wnioski</span></a>
+    <a href="#raport" data-nav="report" data-icon="report"><span>Raport</span></a>
+  </nav>
+
+  <div id="sheet-root"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p class="noscript">Dziennik wymaga włączonej obsługi JavaScriptu.</p></noscript>
+</body>
+</html>
